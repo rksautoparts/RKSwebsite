@@ -36,20 +36,6 @@
   background: var(--color-gray-50);
 }
 
-.section-eyebrow {
-  font-size: var(--fs-14);
-  font-weight: 600;
-  color: var(--color-red);
-  margin-bottom: 4px;
-}
-
-.section-heading {
-  font-size: var(--fs-32);
-  font-weight: 700;
-  color: var(--color-dark);
-  margin-bottom: 32px;
-}
-
 .partners-banner {
   width: 100%;
   max-width: 1920px;
@@ -91,6 +77,13 @@
   grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: center;
+}
+
+.about-services__title {
+  font-size: var(--fs-32);
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--color-dark);
 }
 
 .about-services__content p {

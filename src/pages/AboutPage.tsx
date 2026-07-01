@@ -78,8 +78,7 @@ export default function AboutPage() {
 
       <section className="about-partners">
         <div className="container">
-          <p className="section-eyebrow">เกี่ยวกับเรา</p>
-          <h2 className="section-heading">คู่ค้าของบริษัท</h2>
+          <h2 className="section-title">คู่ค้าของเรา</h2>
           <div className="partners-banner">
             {partnersImage ? (
               <img src={partnersImage} alt={partnersAlt} width={1920} height={1080} />
@@ -93,11 +92,9 @@ export default function AboutPage() {
       </section>
 
       <section className="about-services">
-        <div className="container">
-          <p className="section-eyebrow">สินค้า</p>
-          <h2 className="section-heading">เราจัดหาอะไร</h2>
-          <div className="about-services__inner">
+        <div className="container about-services__inner">
           <div className="about-services__content">
+            <h2 className="about-services__title">เราจัดหาอะไร</h2>
             <p>
             เราจัดหาและจำหน่ายอะไหล่รถยนต์ครบวงจรสำหรับรถยนต์แบรนด์ต่างๆ เช่น Toyota, Honda, Mazda, Isuzu, Nissan, Suzuki, Chevrolet และ Ford
             
@@ -118,7 +115,6 @@ export default function AboutPage() {
                 <span>อัปโหลดรูป (1920 × 1080) ใน Supabase ตาราง site_images (key: services_image)</span>
               </div>
             )}
-          </div>
           </div>
         </div>
       </section>
