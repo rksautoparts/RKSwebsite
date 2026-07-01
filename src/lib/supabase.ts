@@ -41,3 +41,28 @@ export async function fetchProducts(): Promise<Product[]> {
 
   return data ?? []
 }
+
+export interface SiteImage {
+  id: string
+  key: string
+  image_url: string
+  alt: string | null
+  updated_at: string
+}
+
+/** Fetch a single managed image (e.g. the คู่ค้าของเรา banner) by its key. */
+export async function fetchSiteImage(key: string): Promise<SiteImage | null> {
+  if (!supabase) return null
+
+  const { data, error } = await supabase
+    .from('site_images')
+    .select('*')
+    .eq('key', key)
+    .maybeSingle()
+
+  if (error) {
+    throw new Error(error.message)
+  }
+
+  return data ?? null
+}

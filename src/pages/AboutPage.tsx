@@ -1,11 +1,50 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import HeroSection from '../components/HeroSection'
 import Logo from '../components/Logo'
 import BrandGrid from '../components/BrandGrid'
-import { PARTNERS } from '../data/siteData'
+import { fetchSiteImage, isSupabaseConfigured } from '../lib/supabase'
 import './AboutPage.css'
 
+const PARTNERS_BANNER_KEY = 'partners_banner'
+const SERVICES_IMAGE_KEY = 'services_image'
+
 export default function AboutPage() {
+  const [partnersImage, setPartnersImage] = useState<string | null>(null)
+  const [partnersAlt, setPartnersAlt] = useState('คู่ค้าของเรา')
+  const [servicesImage, setServicesImage] = useState<string | null>(null)
+  const [servicesAlt, setServicesAlt] = useState('เราจัดหาอะไร')
+
+  useEffect(() => {
+    if (!isSupabaseConfigured) return
+
+    let active = true
+
+    fetchSiteImage(PARTNERS_BANNER_KEY)
+      .then((img) => {
+        if (!active || !img) return
+        setPartnersImage(img.image_url)
+        if (img.alt) setPartnersAlt(img.alt)
+      })
+      .catch(() => {
+        /* keep placeholder on error */
+      })
+
+    fetchSiteImage(SERVICES_IMAGE_KEY)
+      .then((img) => {
+        if (!active || !img) return
+        setServicesImage(img.image_url)
+        if (img.alt) setServicesAlt(img.alt)
+      })
+      .catch(() => {
+        /* keep placeholder on error */
+      })
+
+    return () => {
+      active = false
+    }
+  }, [])
+
   return (
     <>
       <HeroSection variant="home" showCta={false} />
@@ -40,12 +79,14 @@ export default function AboutPage() {
       <section className="about-partners">
         <div className="container">
           <h2 className="section-title">คู่ค้าของเรา</h2>
-          <div className="partners-grid">
-            {PARTNERS.map((partner) => (
-              <div key={partner} className="partners-grid__item">
-                <span>{partner}</span>
+          <div className="partners-banner">
+            {partnersImage ? (
+              <img src={partnersImage} alt={partnersAlt} width={1920} height={1080} />
+            ) : (
+              <div className="partners-banner__placeholder">
+                <span>อัปโหลดรูปคู่ค้า (1920 × 1080) ใน Supabase ตาราง site_images</span>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -55,27 +96,25 @@ export default function AboutPage() {
           <div className="about-services__content">
             <h2 className="about-services__title">เราจัดหาอะไร</h2>
             <p>
-              เราจัดหาอะไหล่รถยนต์ครบวงจร ทั้งอะไหล่แท้ (Genuine Parts)
-              และอะไหล่เทียบ (Aftermarket) จากแบรนด์ชั้นนำทั่วโลก
-              ครอบคลุมสินค้าหลัก ได้แก่ แผงคอยล์แอร์ หม้อน้ำ อินเตอร์คูลเลอร์
-              และอะไหล่อื่นๆ อีกมากมาย
-            </p>
-            <p>
-              เรามีสินค้าสำหรับรถยนต์ทุกยี่ห้อ ทั้งรถเก๋ง รถกระบะ และรถ SUV
-              พร้อมบริการจัดส่งทั่วประเทศและให้คำปรึกษาฟรี
+            เราจัดหาและจำหน่ายอะไหล่รถยนต์ครบวงจรสำหรับรถยนต์แบรนด์ต่างๆ เช่น Toyota, Honda, Mazda, Isuzu, Nissan, Suzuki, Chevrolet และ Ford
+            
+            อะไหล่ที่เราจำหน่ายครอบคลุมทุกประเภท ตั้งแต่ บอดี้พาร์ท ระบบไฟ ช่วงล่าง ระบบระบายความร้อน
+            
+            ไม่ว่าจะเป็นอะไหล่แท้ราคาพิเศษ อะไหล่เทียบคุณภาพดี หรืออะไหล่มือสอง — เราจัดหาให้ได้ครบในที่เดียว
+
             </p>
             <Link to="/products" className="btn btn-red about-services__cta">
-              ดูเพิ่มเติม
+              ดูสินค้า
             </Link>
           </div>
-          <div className="about-services__brands">
-            <div className="about-services__brand-icons">
-              {['T', 'H', 'M', 'N', 'I', 'S', 'F'].map((letter) => (
-                <div key={letter} className="about-services__brand-icon">
-                  {letter}
-                </div>
-              ))}
-            </div>
+          <div className="about-services__image">
+            {servicesImage ? (
+              <img src={servicesImage} alt={servicesAlt} width={1920} height={1080} />
+            ) : (
+              <div className="about-services__image-placeholder">
+                <span>อัปโหลดรูป (1920 × 1080) ใน Supabase ตาราง site_images (key: services_image)</span>
+              </div>
+            )}
           </div>
         </div>
       </section>

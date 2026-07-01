@@ -24,12 +24,6 @@ export const AFTERMARKET_BRANDS = [
   { name: 'COOL GEAR', color: '#3498DB' },
 ]
 
-export const PARTNERS = [
-  'Viriyah', 'Bangkok Insurance', 'Dhipaya', 'ERGO', 'TSI',
-  'KPI', 'Thaivivat', 'Muang Thai', 'Syn Mun Kong', 'Deves',
-  'Asia Insurance', 'Chubb', 'AXA', 'Tokio Marine', 'Safety',
-]
-
 export const MAIN_PRODUCTS = [
   {
     title: 'แผงรังผึ้งเเอร์',

@@ -13,9 +13,11 @@ export default function ProductsPage() {
         <div className="container">
           <h2 className="section-title">Genuine Parts อะไหล่แท้</h2>
           <p className="products-section__desc">
-            เราเป็นตัวแทนจำหน่ายอะไหล่แท้จากผู้ผลิตรถยนต์ชั้นนำ ครอบคลุมทุกยี่ห้อ
-            ทั้ง Toyota, Honda, Nissan, Isuzu, Suzuki, Mazda, Ford, Chevrolet และอื่นๆ
-            อะไหล่ทุกชิ้นผ่านการตรวจสอบคุณภาพอย่างเข้มงวด
+          เราเป็นผู้จัดหาและจำหน่ายอะไหล่แท้ให้กับบริษัทประกันชั้นนำและอู่ทั่วประเทศมากว่า 30 ปี ทำให้เรามีความสัมพันธ์อันดีกับศูนย์บริการต่างๆ ได้แก่ 
+          Toyota, Honda, Mazda, Nissan, Isuzu, Suzuki, Mitsubishi, Chevrolet และ Ford
+          
+          และอะไหล่แท้ศูนย์รถจีนที่กำลังมาแรงในไทย ได้แก่ BYD, GWM, GAC Motor และ Changan 
+          เราติดตามตลาดอย่างใกล้ชิดและพร้อมจัดหาอะไหล่รุ่นใหม่ล่าสุดให้คุณได้ก่อนใคร
           </p>
         </div>
       </section>
