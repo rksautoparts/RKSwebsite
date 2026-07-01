@@ -28,14 +28,14 @@
 }
 
 .contact-info__item h4 {
-  font-size: 16px;
+  font-size: var(--fs-16);
   font-weight: 600;
   margin-bottom: 4px;
   color: var(--color-dark);
 }
 
 .contact-info__item p {
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: 300;
   color: var(--color-gray-600);
   line-height: 1.5;

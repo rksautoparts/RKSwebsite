@@ -56,9 +56,14 @@ export default function QuoteForm() {
   return (
     <div className="quote-form">
       <h2 className="quote-form__heading">ติดต่อเรา</h2>
-      <h3 className="quote-form__subheading">ขอใบเสนอราคา</h3>
+      <h3
+  className="quote-form__subheading"
+  style={{ fontSize: "2rem" }}
+>
+  ขอใบเสนอราคา
+</h3>
       <p className="quote-form__desc">
-        กรอกแบบฟอร์มด้านล่าง เราจะติดต่อกลับโดยเร็วที่สุด
+      ต้องการสอบถามราคา หรือสั่งซื้ออะไหล่ กรอกแบบฟอร์มด้านล่างได้เลย ทีมงานเราจะติดต่อกลับโดยเร็วที่สุด
       </p>
 
       <form className="quote-form__form" onSubmit={handleSubmit}>

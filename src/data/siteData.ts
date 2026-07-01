@@ -45,34 +45,17 @@ export const MAIN_PRODUCTS = [
   },
 ]
 
-export const SUMO_PRODUCTS = [
-  { model: 'TOYOTA VIOS 2003-2007', brand: 'TOYOTA', type: 'แผงคอยล์แอร์' },
-  { model: 'TOYOTA ALTIS 2008-2013', brand: 'TOYOTA', type: 'แผงคอยล์แอร์' },
-  { model: 'HONDA CITY 2009-2014', brand: 'HONDA', type: 'แผงคอยล์แอร์' },
-  { model: 'HONDA CIVIC 2012-2015', brand: 'HONDA', type: 'แผงคอยล์แอร์' },
-  { model: 'MAZDA 2 2014-2019', brand: 'MAZDA', type: 'แผงคอยล์แอร์' },
-  { model: 'MAZDA 3 2014-2019', brand: 'MAZDA', type: 'แผงคอยล์แอร์' },
-  { model: 'MITSUBISHI ATTRAGE', brand: 'MITSUBISHI', type: 'แผงคอยล์แอร์' },
-  { model: 'NISSAN ALMERA 2012-2019', brand: 'NISSAN', type: 'แผงคอยล์แอร์' },
-  { model: 'TOYOTA VIOS 2003-2007', brand: 'TOYOTA', type: 'หม้อน้ำ' },
-  { model: 'HONDA CITY 2009-2014', brand: 'HONDA', type: 'หม้อน้ำ' },
-  { model: 'MAZDA 2 2014-2019', brand: 'MAZDA', type: 'หม้อน้ำ' },
-  { model: 'ISUZU D-MAX 2012-2019', brand: 'ISUZU', type: 'หม้อน้ำ' },
-  { model: 'TOYOTA HILUX REVO', brand: 'TOYOTA', type: 'อินเตอร์คูลเลอร์' },
-  { model: 'FORD RANGER 2012-2019', brand: 'FORD', type: 'อินเตอร์คูลเลอร์' },
-  { model: 'MITSUBISHI TRITON', brand: 'MITSUBISHI', type: 'อินเตอร์คูลเลอร์' },
-  { model: 'ISUZU D-MAX 2012-2019', brand: 'ISUZU', type: 'อินเตอร์คูลเลอร์' },
-]
+// NOTE: สินค้า (SumoPage catalog) now loads from Supabase — see src/lib/supabase.ts
 
 export const MAP_LOCATION = {
-  lat: 13.7769,
-  lng: 100.4414,
+  lat: 13.7822936,
+  lng: 100.4544734,
   address: '36 ซ. บรมราชชนนี 53 ตลิ่งชัน กรุงเทพฯ 10170',
   name: 'RKS Autopart',
 }
 
 export const CONTACT = {
-  phones: ['02-325-0433', '02-325-0434'],
+  phones: ['02-621-1297', '02-621-1488'],
   line: '@rksautoparts',
   facebook: 'RKS autoparts',
   email: 'rksautopart@gmail.com',

@@ -32,12 +32,12 @@
 }
 
 .features__title {
-  font-size: 22px;
+  font-size: var(--fs-22);
   font-weight: 600;
 }
 
 .features__desc {
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: 300;
   opacity: 0.8;
   line-height: 1.5;

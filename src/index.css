@@ -19,6 +19,26 @@
   --topbar-height: 40px;
   --header-height: 80px;
   --header-total: 120px;
+
+  /* ── Typography ──────────────────────────────────────────────
+     Change --font-scale to resize EVERY font on the whole site at once
+     (e.g. 1.1 = 10% bigger, 0.9 = 10% smaller).
+     Or tweak any single token below to adjust just that text size. */
+  --font-scale: 1;
+  --fs-11: calc(11px * var(--font-scale));
+  --fs-13: calc(13px * var(--font-scale));
+  --fs-14: calc(14px * var(--font-scale));
+  --fs-15: calc(15px * var(--font-scale));
+  --fs-16: calc(16px * var(--font-scale));
+  --fs-18: calc(18px * var(--font-scale));
+  --fs-22: calc(22px * var(--font-scale));
+  --fs-24: calc(24px * var(--font-scale));
+  --fs-26: calc(26px * var(--font-scale));
+  --fs-28: calc(28px * var(--font-scale));
+  --fs-32: calc(32px * var(--font-scale));
+  --fs-42: calc(42px * var(--font-scale));
+  --fs-48: calc(48px * var(--font-scale));
+  --fs-72: calc(72px * var(--font-scale));
 }
 
 *,
@@ -35,6 +55,7 @@ html {
 
 body {
   font-family: var(--font-family);
+  font-size: var(--fs-16);
   color: var(--color-dark);
   background: var(--color-white);
   line-height: 1.5;
@@ -66,7 +87,7 @@ button {
 }
 
 .section-title {
-  font-size: 32px;
+  font-size: var(--fs-32);
   font-weight: 600;
   text-align: center;
   margin-bottom: 48px;
@@ -90,7 +111,7 @@ button {
   background: var(--color-red);
   color: var(--color-white);
   padding: 12px 32px;
-  font-size: 16px;
+  font-size: var(--fs-16);
 }
 
 .btn-red:hover {
@@ -101,7 +122,7 @@ button {
   background: var(--color-blue);
   color: var(--color-white);
   padding: 14px 40px;
-  font-size: 18px;
+  font-size: var(--fs-18);
 }
 
 .btn-blue:hover {
@@ -112,7 +133,7 @@ button {
   border: 2px solid var(--color-red);
   color: var(--color-red);
   padding: 10px 28px;
-  font-size: 16px;
+  font-size: var(--fs-16);
   border-radius: 50px;
   background: transparent;
 }
@@ -138,7 +159,7 @@ button {
   }
 
   .section-title {
-    font-size: 26px;
+    font-size: var(--fs-26);
     margin-bottom: 32px;
   }
 }

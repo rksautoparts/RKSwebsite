@@ -1,9 +1,43 @@
+import { useEffect, useState } from 'react'
 import HeroSection from '../components/HeroSection'
-import { SUMO_PRODUCTS } from '../data/siteData'
+import { fetchProducts, isSupabaseConfigured, type Product } from '../lib/supabase'
 import './SumoPage.css'
 
 export default function SumoPage() {
-  const categories = ['แผงคอยล์แอร์', 'หม้อน้ำ', 'อินเตอร์คูลเลอร์']
+  const [products, setProducts] = useState<Product[]>([])
+  const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading')
+  const [errorMsg, setErrorMsg] = useState('')
+
+  useEffect(() => {
+    if (!isSupabaseConfigured) {
+      setStatus('error')
+      setErrorMsg('ยังไม่ได้ตั้งค่า Supabase (VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY)')
+      return
+    }
+
+    let active = true
+    fetchProducts()
+      .then((data) => {
+        if (!active) return
+        setProducts(data)
+        setStatus('ready')
+      })
+      .catch((err) => {
+        if (!active) return
+        setErrorMsg(err instanceof Error ? err.message : 'โหลดสินค้าไม่สำเร็จ')
+        setStatus('error')
+      })
+
+    return () => {
+      active = false
+    }
+  }, [])
+
+  // Preserve category order as it first appears in the sorted data
+  const categories = products.reduce<string[]>((acc, product) => {
+    if (!acc.includes(product.category)) acc.push(product.category)
+    return acc
+  }, [])
 
   return (
     <>
@@ -13,36 +47,43 @@ export default function SumoPage() {
         <div className="container">
           <h2 className="section-title">สินค้าของเรา</h2>
 
-          {categories.map((category) => {
-            const products = SUMO_PRODUCTS.filter((p) => p.type === category)
-            if (products.length === 0) return null
+          {status === 'loading' && (
+            <p className="sumo-catalog__state">กำลังโหลดสินค้า...</p>
+          )}
 
-            return (
-              <div key={category} className="sumo-category">
-                <h3 className="sumo-category__title">{category}</h3>
-                <div className="sumo-products-grid">
-                  {products.map((product, idx) => (
-                    <div key={`${product.model}-${idx}`} className="sumo-product-card">
-                      <div className="sumo-product-card__image">
-                        <img
-                          src={`https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=300&h=240&fit=crop&sig=${idx}`}
-                          alt={product.model}
-                          width={240}
-                          height={180}
-                        />
+          {status === 'error' && (
+            <p className="sumo-catalog__state sumo-catalog__state--error">{errorMsg}</p>
+          )}
+
+          {status === 'ready' && products.length === 0 && (
+            <p className="sumo-catalog__state">ยังไม่มีสินค้าในระบบ</p>
+          )}
+
+          {status === 'ready' &&
+            categories.map((category) => {
+              const items = products.filter((p) => p.category === category)
+
+              return (
+                <div key={category} className="sumo-category">
+                  <h3 className="sumo-category__title">{category}</h3>
+                  <div className="sumo-products-grid">
+                    {items.map((product) => (
+                      <div key={product.id} className="sumo-product-card">
+                        <div className="sumo-product-card__image">
+                          <img
+                            src={product.image_url}
+                            alt={product.name}
+                            width={240}
+                            height={240}
+                            loading="lazy"
+                          />
+                        </div>
                       </div>
-                      <div className="sumo-product-card__brand">
-                        <span>{product.brand.charAt(0)}</span>
-                      </div>
-                      <div className="sumo-product-card__info">
-                        <p className="sumo-product-card__model">{product.model}</p>
-                      </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })}
         </div>
       </section>
     </>

@@ -2,7 +2,7 @@
   height: var(--topbar-height);
   background: var(--color-dark);
   color: var(--color-white);
-  font-size: 13px;
+  font-size: var(--fs-13);
   font-weight: 300;
 }
 
@@ -34,7 +34,7 @@
 @media (max-width: 768px) {
   .topbar__contacts {
     gap: 12px;
-    font-size: 11px;
+    font-size: var(--fs-11);
   }
 
   .topbar__item span {

@@ -17,14 +17,14 @@
 }
 
 .about-history__title {
-  font-size: 32px;
+  font-size: var(--fs-32);
   font-weight: 600;
   margin-bottom: 24px;
   color: var(--color-dark);
 }
 
 .about-history__content p {
-  font-size: 16px;
+  font-size: var(--fs-16);
   font-weight: 300;
   line-height: 1.9;
   color: var(--color-gray-600);
@@ -50,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: var(--fs-13);
   font-weight: 500;
   color: var(--color-dark);
   text-align: center;
@@ -75,14 +75,14 @@
 }
 
 .about-services__title {
-  font-size: 32px;
+  font-size: var(--fs-32);
   font-weight: 600;
   margin-bottom: 24px;
   color: var(--color-dark);
 }
 
 .about-services__content p {
-  font-size: 16px;
+  font-size: var(--fs-16);
   font-weight: 300;
   line-height: 1.9;
   color: var(--color-gray-600);
@@ -107,7 +107,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: var(--fs-28);
   font-weight: 700;
   color: #888;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

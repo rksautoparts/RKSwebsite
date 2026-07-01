@@ -25,11 +25,11 @@ export default function HeroSection({
     },
     products: {
       title: 'ทางเรายินดีให้คำปรึกษาฟรี',
-      subtitle: 'โทร 02-325-0433 / 081-123-4567 | Line: @rksautoparts',
+      subtitle: 'โทร 02-621-1297 / 02-621-1488 | Line: @rksautoparts',
     },
     contact: {
       title: 'ทางเรายินดีให้คำปรึกษาฟรี',
-      subtitle: 'โทร 02-325-0433 / 081-123-4567 | Line: @rksautoparts',
+      subtitle: 'โทร 02-621-1297 / 02-621-1488 | Line: @rksautoparts',
     },
     sumo: {
       title: 'แบรนด์อะไหล่ชั้นนำของเรา',
