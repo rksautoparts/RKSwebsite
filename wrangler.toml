@@ -1,0 +1,13 @@
+name = "rks-autopart"
+compatibility_date = "2024-12-01"
+pages_build_output_dir = "dist"
+
+# Deploy: npm run pages:deploy
+# Custom domain: Cloudflare Dashboard → Workers & Pages → rks-autopart → Custom domains
+# Add your domain (e.g. rksautopart.com) and point DNS through Cloudflare.
+
+[vars]
+# Public build-time vars are injected via Cloudflare Pages → Settings → Environment variables
+# Secrets (set in Dashboard → Settings → Variables, mark as Encrypted):
+#   RESEND_API_KEY
+#   RESEND_FROM_EMAIL  e.g. "RKS Autopart <noreply@yourdomain.com>"

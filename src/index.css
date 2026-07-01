@@ -1,0 +1,155 @@
+:root {
+  --color-red: #dc1e2d;
+  --color-red-hover: #b81825;
+  --color-dark: #1a1a1a;
+  --color-dark-nav: #2b2b2b;
+  --color-blue: #3b82c4;
+  --color-blue-hover: #2f6aa0;
+  --color-white: #ffffff;
+  --color-gray-50: #f8f8f8;
+  --color-gray-100: #f0f0f0;
+  --color-gray-200: #e5e5e5;
+  --color-gray-400: #9ca3af;
+  --color-gray-600: #6b7280;
+  --color-footer: #4a4a4a;
+  --color-footer-dark: #3d3d3d;
+
+  --font-family: 'Kanit', sans-serif;
+  --max-width: 1440px;
+  --topbar-height: 40px;
+  --header-height: 80px;
+  --header-total: 120px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-dark);
+  background: var(--color-white);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 48px;
+  color: var(--color-dark);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border-radius: 50px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-red {
+  background: var(--color-red);
+  color: var(--color-white);
+  padding: 12px 32px;
+  font-size: 16px;
+}
+
+.btn-red:hover {
+  background: var(--color-red-hover);
+}
+
+.btn-blue {
+  background: var(--color-blue);
+  color: var(--color-white);
+  padding: 14px 40px;
+  font-size: 18px;
+}
+
+.btn-blue:hover {
+  background: var(--color-blue-hover);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-red);
+  color: var(--color-red);
+  padding: 10px 28px;
+  font-size: 16px;
+  border-radius: 50px;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--color-red);
+  color: var(--color-white);
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .section-title {
+    font-size: 26px;
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 64px;
+    --header-total: 104px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
